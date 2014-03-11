@@ -291,7 +291,7 @@ if (typeof Object.create !== "function") {
                     }, base.options.responsiveRefreshRate);
                 }
             };
-            responsiveObject.resize(base.resizer);
+            $(window).resize(base.resizer);
         },
 
         updatePosition : function () {
