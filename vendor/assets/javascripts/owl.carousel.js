@@ -271,26 +271,27 @@ if (typeof Object.create !== "function") {
         response : function () {
             var base = this,
                 smallDelay,
-                lastWindowWidth;
+                lastWindowWidth,
+                responsiveObject = $(base.options.responsiveBaseWidth);
 
             if (base.options.responsive !== true) {
                 return false;
             }
-            lastWindowWidth = $(window).width();
+            lastWindowWidth = responsiveObject.width();
 
             base.resizer = function () {
-                if ($(window).width() !== lastWindowWidth) {
+                if (responsiveObject.width() !== lastWindowWidth) {
                     if (base.options.autoPlay !== false) {
                         window.clearInterval(base.autoPlayInterval);
                     }
                     window.clearTimeout(smallDelay);
                     smallDelay = window.setTimeout(function () {
-                        lastWindowWidth = $(window).width();
+                        lastWindowWidth = responsiveObject.width();
                         base.updateVars();
                     }, base.options.responsiveRefreshRate);
                 }
             };
-            $(window).resize(base.resizer);
+            responsiveObject.resize(base.resizer);
         },
 
         updatePosition : function () {
