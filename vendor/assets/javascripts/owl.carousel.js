@@ -291,7 +291,7 @@ if (typeof Object.create !== "function") {
                     }, base.options.responsiveRefreshRate);
                 }
             };
-            $(window).resize(base.resizer);
+            $(window).on("resize.owl", base.resizer);
         },
 
         updatePosition : function () {
@@ -1359,7 +1359,7 @@ if (typeof Object.create !== "function") {
             var base = this;
             base.$elem.off(".owl owl mousedown.disableTextSelect");
             $(document).off(".owl owl");
-            $(window).off("resize", base.resizer);
+            $(window).off("resize.owl", base.resizer);
         },
 
         unWrap : function () {
