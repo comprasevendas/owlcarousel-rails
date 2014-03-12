@@ -377,6 +377,7 @@ if (typeof Object.create !== "function") {
 
             for (i = 0; i < base.itemsAmount; i += 1) {
                 elWidth += base.itemWidth;
+                // elWidth += $(base.owlItems[i]).outerWidth();
                 base.positionsInArray.push(-elWidth);
 
                 if (base.options.scrollPerPage === true) {
